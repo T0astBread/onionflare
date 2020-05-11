@@ -1,0 +1,20 @@
+{
+	"manifest_version": 2,
+	"name": "onionflare",
+	"version": "0.1.0",
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	},
+	"permissions": [
+		"webRequest",
+		"webRequestBlocking",
+		"<all_urls>"
+	],
+	"applications": {
+		"gecko": {
+			"id": "onionflare@t0ast.cc"
+		}
+	}
+}
