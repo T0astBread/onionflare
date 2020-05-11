@@ -1,6 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "onionflare",
+	"description": "Makes Firefox look like the Tor Browser to avoid Cloudflare CAPTCHAs",
 	"version": "0.1.0",
 	"background": {
 		"scripts": [
