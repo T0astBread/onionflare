@@ -13,32 +13,46 @@
 // have a Firefox UA string.)
 
 
-const isAcceptHeader = ({ name }) => name.toLowerCase() === "accept"
+const isHeader = (...keys) => ({ name }) => keys.includes(name.toLowerCase())
 
 browser.webRequest.onBeforeSendHeaders.addListener(
 	({ requestHeaders }) => {
-		const acceptHeader = requestHeaders.find(isAcceptHeader)
-		const patchAcceptHeader =
-			acceptHeader != null &&
-			acceptHeader.value.includes("text/html,") &&
-			acceptHeader.value.includes("image/webp,")
+		let acceptHeader = requestHeaders.find(isHeader("accept"))
+		if(acceptHeader != null) {
+			const patchAcceptHeader =
+				acceptHeader.value.includes("text/html,") &&
+				acceptHeader.value.includes("image/webp,")
 
-		if(acceptHeader != null)
 			console.log(patchAcceptHeader, "\t", acceptHeader.value)
-		
-		if(patchAcceptHeader) {
-			const patchedAcceptHeader = {
-				name: "Accept",
-				value: acceptHeader.value.replace("image/webp,", ""),
-			}
-			console.log("\t", patchedAcceptHeader.value)
 
-			return {
-				requestHeaders: [
-					...requestHeaders.filter(header => !isAcceptHeader(header)),
-					patchedAcceptHeader,
-				]
+			if(patchAcceptHeader) {
+				const patchedAcceptHeader = {
+					name: "Accept",
+					value: acceptHeader.value.replace("image/webp,", ""),
+				}
+				console.log("\t", patchedAcceptHeader.value)
+				acceptHeader = patchedAcceptHeader
 			}
+		}
+
+		let uaHeader = requestHeaders.find(isHeader("user-agent"))
+		if(uaHeader != null) {
+			if(uaHeader.value.includes("Android")) {
+				const patchedUAHeader = {
+					name: "User-Agent",
+					value: "Mozilla/5.0 (Android 6.0; Mobile; rv:68.0) Gecko/20100101 Firefox/68.0",
+				}
+				console.log("Patched UA header")
+				uaHeader = patchedUAHeader
+			}
+		}
+
+		return {
+			requestHeaders: [
+				...requestHeaders.filter(header => !isHeader("accept", "user-agent")(header)),
+				acceptHeader,
+				uaHeader,
+			]
 		}
 	},
 	{ urls: ["<all_urls>"] },
