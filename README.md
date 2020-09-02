@@ -1,8 +1,14 @@
-## Less technical explanation
+## Who is this for?
+
+People browsing the web over Tor but not with the Tor Browser
+
+## What does this do?
+
+### Less technical explanation
 
 Cloudflare lets Tor Browser users in CAPTCHA-free while requiring a CAPTCHA for all other Tor connections. This extension emulates some of the Tor Browser's behavior (you won't notice this) to trick Cloudflare into thinking you use the Tor Browser.
 
-## Technical explanation
+### Technical explanation
 
 Cloudflare uses the "alt-svc" HTTP header to transparently redirect Tor users to its own hidden service (which it calls "Cloudflare Onion Services"). If accessed over this service, users are not required to complete a CAPTCHA to see a Cloudflare-protected website.
 
