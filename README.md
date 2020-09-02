@@ -1,6 +1,6 @@
 ## Less technical explanation
 
-Cloudflare lets Tor Browser users in CAPTCHA-free while requiring a CAPTCHA for all other Tor connections. This extension emulates some of the Tor Browser's behavior (you won't notice this) to trick Cloudflare into thinking you use the Tor browser.
+Cloudflare lets Tor Browser users in CAPTCHA-free while requiring a CAPTCHA for all other Tor connections. This extension emulates some of the Tor Browser's behavior (you won't notice this) to trick Cloudflare into thinking you use the Tor Browser.
 
 ## Technical explanation
 
