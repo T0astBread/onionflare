@@ -13,3 +13,11 @@ __Note that this extension can't prevent all CAPTCHAs. Website administrators ca
 ## Links
   - __AMO:__ https://addons.mozilla.org/en-US/firefox/addon/onionflare
   - __GitHub:__ https://github.com/T0astBread/onionflare
+
+## Attribution
+
+The icon is made of several photos created by other people:
+
+  - ["Bulb"](https://pixabay.com/photos/bulb-closeup-close-up-clove-color-1238338/) by [Shutterbug75](https://pixabay.com/users/Shutterbug75-2077322/)
+  - ["Flare"](https://unsplash.com/photos/f5J-wk9EoUA) by [Jonathan Duran](https://unsplash.com/@jonathandu)
+  - ["Onion"](https://pixabay.com/photos/onion-garlic-tomato-vegetables-5187140/) by [jmexclusives](https://pixabay.com/users/jmexclusives-10518280/)
