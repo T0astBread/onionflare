@@ -8,6 +8,8 @@ People browsing the web over Tor but not with the Tor Browser
 
 Cloudflare lets Tor Browser users in CAPTCHA-free while requiring a CAPTCHA for all other Tor connections. This extension emulates some of the Tor Browser's behavior (you won't notice this) to trick Cloudflare into thinking you use the Tor Browser.
 
+__Note: It seems that newer versions of Firefox don't need this add-on anymore to pass CAPTCHA-free on websites behind Cloudflare. It is recommended to uninstall this extension and, unless edge cases are found, the extension will be removed from the store. If you still have a use-case for it, open an issue or download it from [the GitHub repository](https://github.com/t0astbread/onionflare).__
+
 ### Technical explanation
 
 Cloudflare uses the "alt-svc" HTTP header to transparently redirect Tor users to its own hidden service (which it calls "Cloudflare Onion Services"). If accessed over this service, users are not required to complete a CAPTCHA to see a Cloudflare-protected website.
